@@ -211,7 +211,7 @@ state_update:
 				if (g_Config.GetTransparency())
 				{
 					state->rendermode = kRenderTransAlpha;
-					state->renderamt = g_Config.GetEffects() ? (pPlayer->GetDiff(pObject->GetIndex()) > MIN_AMOUNT) ? pPlayer->GetDiff(pObject->GetIndex()) : MIN_AMOUNT : g_Config.GetTransparency();
+					state->renderamt = (g_Config.GetEffects() && pPlayer->GetDiff(pObject->GetIndex()) > g_Config.GetTransparency()) ? pPlayer->GetDiff(pObject->GetIndex()) : g_Config.GetTransparency();
 				}
 			}
 		}
